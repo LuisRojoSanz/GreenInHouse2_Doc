@@ -1,0 +1,82 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+En este apéndice se van a detallar los requisitos esenciales, tanto funcionales como no funcionales para el desarrollo del proyecto. Los definición de requisitos es un paso fundamental ya que se definen tanto las funcionalidades como restricciones que el sistema debe cumplir para satisfacer las necesidades del usuario.
+
+\section{Objetivos generales}
+El objetivo principal del proyecto es la proporcionar la posibilidad de monitorizar el estado de las plantas mediante distintos sensores que envian los datos de mediante una raspberry pi.
+
+Objetivos del proyecto:
+    \begin{itemize}
+        \item \textbf{Monitorización en tiempo real:} Obtener datos en tiempo real desde la raspberry pi para mostrarselos mediante la interfaz al usuario.
+        \item \textbf{Historial de Mediciones:} Permitir que el usuario pueda consultar datos en un determinado periodo de tiempo.
+        \item \textbf{Gestión de Plantas:} Permitir que el usuario pueda crear, eliminar y editar las plantas según sus intereses.
+        \item \textbf{Estado de Sensores:} Permitir que el usuario pueda comprobar el estado de los sensores.
+        \item \textbf{Alertas y Notificaciones:} Notificar al usuario cuando los valores que nos devuelva alguno de los sensores no esté dentro de los rangos establecidos como óptimos.
+        \item \textbf{Interfaz intuitiva:} Creación de una interfaz intuitiva para que el usuario pueda realizar las gestiones que necesite sin que tenga dudas de cómo.
+        \item \textbf{Interfaz Adaptativa:} Creación de una interfaz que se adapte correctamente al tamaño de la pantalla.
+        \item \textbf{Soporte Multilingüe:} Añadir la posibilidad que el usuario pueda cambiar de idioma la aplicación y así hacerla más accesible para más usuarios.
+    \end{itemize}
+
+
+\section{Catálogo de requisitos}
+Los requisitos se van a dividir en función de si son funcionales o no funcionales:
+
+\begin{itemize}
+    \item \textbf{Funcionales:}
+        \begin{itemize}
+            \item \textbf{RF-01:} El sistema tiene que permitir que los usuarios puedan crear nuevas plantas proporcionando el nombre y tipo de planta.
+            \item \textbf{RF-02:} La aplicación tiene que mostrar los valores recogidos por los sensores tanto de humedad, como temperatura y luz.
+            \item \textbf{RF-03:} El usuario tiene que poder consultar un histórico de las mediciones en un rango de tiempo determinado.
+            \item \textbf{RF-04:} El sistema tiene que permitir que los usuarios puedan editar y eliminar las plantas registradas.
+            \item \textbf{RF-05:} El sistema tiene que notificar cuando un valor de los devueltos por los sensores se salga de los valores óptimos.
+            \item \textbf{RF-06:} El usuario podrá configurar los umbrales tanto de humedad, temperatura y luz en función del tipo planta que seleccione plantar.
+            \item \textbf{RF-07:} La aplicación deberá mostrar todos los sensores mostrando si están activos o no. 
+            \item \textbf{RF-08:} La aplicación deberá permitir seleccionar el idioma deseado.
+        \end{itemize}
+    \item \textbf{No Funcionales:}
+        \begin{itemize}
+            \item \textbf{RNF-01:} La aplicación debe ser compatible con dispositivos android.
+            \item \textbf{RNF-02:} La interfaz ha de ser intuitiva para el usuario para que pueda navegar sin problemas por la aplicación.
+            \item \textbf{RNF-03:} La aplicación debe adaptarse bien a los diferentes dispositivos desde los que se use sin afectar a la visibilidad de la información.
+            \item \textbf{RNF-04:} La base de datos que se vaya a usar debe ser eficiente para almacenar y recuperar datos históricos sin que puedan influir en la velocidad de respuesta de la aplicación.
+            \item \textbf{RNF-05:} El sistema debe ser escalable para permitir que se puedan añadir más sensores sin que se tengan que hacer cambios muy drásticos en el código.
+        \end{itemize}
+\end{itemize}
+
+
+\section{Especificación de requisitos}
+
+
+Una muestra de cómo podría ser una tabla de casos de uso:
+
+% Caso de Uso 1 -> Consultar Experimentos.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-xx, RF-xx \\
+		\textbf{Descripción}          & La descripción del CU \\
+		\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item Pasos del CU
+			\item Pasos del CU (añadir tantos como sean necesarios)
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
+		\textbf{Excepciones}          & Excepciones \\
+		\textbf{Importancia}          & Alta o Media o Baja... \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-1 Nombre del caso de uso.}
+\end{table}
+
+
+
+
