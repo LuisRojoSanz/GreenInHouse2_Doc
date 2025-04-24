@@ -7,7 +7,7 @@ Con este apéndice se intenta que futuros desarrolladores que vayan a modificar 
 
 \section{Estructura de directorios}
 
-El proyecto \textbf{GreenInHouse} sigue una estructura de directorios bien organizada, permitiendo una gestión eficiente del código, los recursos y la configuración. A continuación, se describen las principales carpetas y su contenido:
+El proyecto \textbf{GreenInHouse 2.0} sigue una estructura de directorios bien organizada, permitiendo una gestión eficiente del código, los recursos y la configuración. A continuación, se describen las principales carpetas y su contenido:
 
 \begin{itemize}
     \item {\textbf{Directorio raíz} (\texttt{greeninhouse2/})}
@@ -20,12 +20,6 @@ El proyecto \textbf{GreenInHouse} sigue una estructura de directorios bien organ
     \item \textbf{\texttt{ios/}, \texttt{android/}, \texttt{linux/}, \texttt{macos/}, \texttt{web/}, \texttt{windows/}}: Carpetas para cada plataforma soportada, con la configuración y código necesarios para compilar en cada sistema operativo.
 
     \item \texttt{\textbf{assets}/} Carpeta con todas las fotos que se van a usar en la aplicación.
-    \begin{itemize}
-        \item \texttt{cara\_enfadada.png}
-        \item \texttt{cara\_seria.png}
-        \item \texttt{cara\_sonriente.png}
-        \item \texttt{plant\_image.png}
-    \end{itemize}
     \item \textbf{\texttt{flags/}}: Carpeta con imágenes de iconos y estados de las plantas:
 
     \item{\texttt{\textbf{lib/}}}
@@ -46,7 +40,7 @@ El proyecto \textbf{GreenInHouse} sigue una estructura de directorios bien organ
     \item \textbf{\texttt{main.dart}} – Punto de entrada principal de la aplicación.
 
     \item \texttt{\textbf{pantalla\_graficas.dart}} – Pantalla principal con gráficos de sensores.
-    \item \texttt\textbf{{pantalla\_inicio.dart}} – Pantalla inicial de la aplicación.
+    \item \texttt{\textbf{pantalla\_inicio.dart}} – Pantalla inicial de la aplicación.
     \item \texttt{\textbf{pantalla\_comprobacion\_sensores.dart}} – Revisión del estado de sensores.
     \item \texttt{\textbf{pantalla\_creacionplantas.dart}} – Creación de nuevas plantas.
     \item \texttt{\textbf{pantalla\_modificarplanta.dart}} – Modificación de plantas registradas.
@@ -69,72 +63,210 @@ El proyecto \textbf{GreenInHouse} sigue una estructura de directorios bien organ
 
 \section{Manual del programador}
 El objetivo del manual del programador es la de proporcionar una guía del desarrollo y mantenimiento de la aplicación. Este manual está dirigido a desarrolladores que necesiten como funciona las herramientas utilizadas en el desarrollo de esta aplicación.
-También se ha incluído las instrucciones necesarias para configurar el entorno de desarrollo y ejecutar la aplicación.
+También se ha incluido las instrucciones necesarias para configurar el entorno de desarrollo y ejecutar la aplicación.
 Además, se ha detallado aspectos que son claves como la estructura de datos que sigue la aplicación y la comunicación con la API entre otras cosas con el objetivo de facilitar mejoras que se puedan llevar a cabo en un futuro.
 
 
 \subsection{\textbf{Instalación de Android Studio}}
 Android Studio es el entorno de desarrollo integrado (IDE) oficial que se usa en el desarrollo de apps para Android. Basado en el potente editor de código y las herramientas para desarrolladores de IntelliJ IDEA.
-Se puede descargar desde su página oficial: https://developer.android.com/studio?hl=es-419
+Se puede descargar desde su página oficial: \url{https://developer.android.com/studio?hl=es-419}
 
 
 
+Al descargar la aplicación y ejecutarla nos saldrá lo que vemos en la foto a continuación y le daremos al botón de ``Next''.\ref{C1}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{AndroidStudio1.png}
-    \caption{Al descargar la aplicación y ejecutarla nos saldrá lo que vemos en la foto a continuación y le daremos al botón de "Next".}
-    \label{fig:enter-label}
+    \caption{Le daremos a Next.}
+    \label{C1}
 \end{figure}
 
-
-
+Tras esto nos saldrá la siguiente ventana en la que dejaremos lo que viene por defecto y le volveremos a dar a ``Next''.\ref{C2}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{AndroidStudio2.png}
-    \caption{Tras esto nos saldrá la siguiente ventana en la que dejaremos lo que viene por defecto y le volveremos a dar a "Next".}
-    \label{fig:enter-label}
+    \caption{Volvemos a darle a Next}
+    \label{C2}
 \end{figure}
 
-
+Por último en la ultima ventana decidiremos el path donde instalar la aplicación y le daremos a ``Next'' para que instale la aplicación en el path seleccionado.\ref{C3}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{AndroidStudio3.png}
-    \caption{Por último en la ultima ventana decidiremos el path donde instalar la aplicación y le daremos a "Next" para que instale la aplicación en el path seleccionado.}
-    \label{fig:enter-label}
+    \caption{Elegir path y darle a Next}
+    \label{C3}
 \end{figure}
 
 Tras instalar Android Studio vamos a pasar a la configuración de las herramientas instalando tanto Flutter como Dart.
-Esto se hace entrando en la pestaña de ajustes y en Plugins.
+Esto se hace entrando en la pestaña de ajustes y en Plugins.\ref{C4}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{PlugingsAndroidStudio.png}
     \caption{Instalación plugins Android Studio}
-    \label{fig:enter-label}
+    \label{C4}
 \end{figure}
 
 
-El siguiente paso es la configuración de SDK en el Android Studio. Esto se hace accediendo a ajustes y alli desde Languages \& Frameworks.
+El siguiente paso es la configuración de SDK en el Android Studio. Esto se hace accediendo a ajustes y alli desde Languages \& Frameworks. \ref{C5}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Configuración-SDK-AndroidStudio.png}
     \caption{Configuración de SDK en Android Studio}
-    \label{fig:enter-label}
+    \label{C5}
 \end{figure}
 
 
-Por ultimo vamos a instalar unas herramientas en SDK Tools que viene a la derecha de la de SDK Platforms necesarias para el buen funcionamiento de la herramienta.
+Por ultimo vamos a instalar unas herramientas en SDK Tools que viene a la derecha de la de SDK Platforms necesarias para el buen funcionamiento de la herramienta.\ref{C6}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Configuracion-SDKTools-AndroidStudio.png}
     \caption{Instalación de Herramientas de SDK}
-    \label{fig:enter-label}
+    \label{C6}
 \end{figure}
 
 \subsection{\textbf{Instalación de Flutter}}
+Para la instalación de Flutter deberemos ir a su página web y descargarlo. Alli nos preguntarán por nuestro sistema operativo, tras elegirlo nos preguntarán por el tipo de aplicación queremos ya sea ``Android'' o ``Web'' o ``Desktop''. En mi caso, seleccioné ``Windows'' y ``Android''. Tras esto nos descargaremos el .zip que aparece en la web como se puede ver en la imagen a continuación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Instalación_Flutter_SDK.png}
+    \caption{Descargaremos el archivo}
+    \label{C7}
+\end{figure}
+
+A continuación, deberemos descomprimir el .zip y guardar la carpeta en un directorio que elijamos para de esta manera poder añadir en las variables de entorno la ruta del fichero ``\textbackslash bin''.
+
+Primero, abriremos la configuración avanzada del sistema desde el buscador de Windows y nos saldrá la pantalla que vemos en la siguiente captura. Daremos al botón que pone ``Variables de entorno'' para continuar.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Variables_Entorno_1.png}
+    \caption{Le daremos al botón de ``Variables de entorno''}
+    \label{C8}
+\end{figure}
+
+Seguido, buscaremos la variable que se llame ``Path'' y le daremos al botón de ``Editar'' como vemos en la captura siguiente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Variables_Entorno_2.png}
+    \caption{Seleccionaremos la variable ``Path'' y le daremos a ``Editar''}
+    \label{C9}
+\end{figure}
+
+Por último, le daremos al botón de ``Nuevo'' y añadiremos la ruta donde se encuentre nuestra carpeta ``\textbackslash bin''. Nos quedará añadido como se puede ver en la siguiente imagen y le daremos a ``Aceptar'' para que se quede guardado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Variables_Entorno_3.png}
+    \caption{Añadiremos el \textit{path} de ``\textbackslash bin'' y le daremos a ``Aceptar''}
+    \label{C10}
+\end{figure}
+
+Para comprobar que todo se ha instalado correctamente abriremos una terminal y mediante el comando \textit{``flutter doctor''} verificaremos que se ha instalado bien y si falta alguna configuración o dependencia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Comando_flutterdoctor.png}
+    \caption{Uso del comando \textit{''flutter doctor''}}
+    \label{C11}
+\end{figure}
 
 \section{Compilación, instalación y ejecución del proyecto}
 
+Para poder probar y utilizar la aplicación de GreenInHouse 2.0 durante su desarrollo ha sido necesario el uso de un emulador. El propio AndroidStudio tiene sus propios emuladores los cuales puedes descargar y configurar en función de tus intereses de la aplicación.
+
+Para poder llevar a cabo la ejecución del programa primero deberemos descargarnos el proyecto mediante el uso del comando:
+\begin{verbatim}
+git clone https://github.com/LuisRojoSanz/GreenInHouse2_APP
+\end{verbatim}
+
+Tras esto se habrá descargado el contenido del repositorio de github y se podrá ejecutar el proyecto.
+
+Primero se deberá pulsar el botón del ``+'' en \textit{Device Manager} para empezar a descargar el emulador como se ve en la imagen a continuación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion1.png}
+    \caption{Descarga de un emulador}
+    \label{C12}
+\end{figure}
+
+Una vez se haya pulsado el ``+'' saldrá la captura a continuación en la que se seleccionará el modelo de emulador deseado y se dara a ``Next''.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion2.png}
+    \caption{Seleccionando un emulador}
+    \label{C13}
+\end{figure}
+
+Tras esto habrá que seleccionar la versión de Android que mejor funcione para el proyecto y darle al botón de ``Next''
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion3.png}
+    \caption{Seleccionando la versión de Android del emulador}
+    \label{C14}
+\end{figure}
+
+En la siguiente pantalla se deberá verificar la configuración del emulador y seleccionar el nombre que de desee. Una vez verificado se dará al botón de ``Next''.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion4.png}
+    \caption{Verificar la configuración del emulador}
+    \label{C15}
+\end{figure}
+
+Descargado ya el emulador ahora tocará seleccionarlo como vemos en la imagen a continuación del emulador que esta resaltado en azul. Una vez seleccionado, se empezará a ejecutar el emulador.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion5.png}
+    \caption{Ejecución del emulador}
+    \label{C16}
+\end{figure}
+
+Por último, una vez que el emulador ya ha iniciado como vemos en la siguiente imagen, se deberá pulsar el botón verde de ejecutar de arriba a la izquierda que está rodeado en azul. Una vez pulsemos este botón se comenzará a ejecutar el proyecto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{InstalacionyEjecucion6.png}
+    \caption{Ejecución del proyecto}
+    \label{C17}
+\end{figure}
+
+
 \section{Pruebas del sistema}
+Para garantizar que la aplicación GreenInHouse 2.0 funciona de manera correcta se han llevado a cabo diferentes tipos de pruebas: 
+
+\subsection{Pruebas Funcionales:} Estas pruebas se basan en comprobar que cada uno de las funcionalidades de los requisitos funciona de manera correcto como por ejemplo:
+    \begin{enumerate}
+        \item \textbf{Crear Planta:} El sistema permite que el usuario pueda seleccionar el nombre y tipo de planta y crear la planta.
+        \item \textbf{Consultar Hitos}: La comunicación con la base de datos a través de la API hace que se puedan ver los hitos diarios.
+        \item \textbf{Cambiar Idioma:} El usuario selecciona el idioma que desee y automaticamente se cambio el idioma en toda la aplicación.
+        \item \textbf{Seleccionar Imagen de Planta:} El usuario puede sacar una foto con la cámara o seleccionarla de la galería.
+    \end{enumerate}
+\subsection{Pruebas de Integración:} Estas pruebas se realizan comprobando la comunicación entre la aplicación y la base de datos mediante diferentes peticiones HTTP dentro de la red local. Estas peticiones pueden ser:
+    \begin{enumerate}
+        \item \textbf{GET}
+        \item \textbf{POST}
+        \item \textbf{PUT}
+        \item \textbf{DELETE}
+    \end{enumerate}
+\subsection{Pruebas de Interfaz de Usuario:} Este tipo de pruebas tienen que ver con el correcto funcionamiento lo visible para el usuario como puede ser:
+    \begin{enumerate}
+        \item \textbf{Funcionamiento de botones y demás \textit{widgets}:} Se han hecho pruebas para comprobar que tanto los botones como los demás elementos con los que puede interactuar el usuario de la interfaz funcionen de manera correcta.
+        \item \textbf{Adaptabilidad:} Se han hecho pruebas para comprobar que usando telefónos móviles de diferentes resoluciones la interfaz se adapta de manera correcta.
+    \end{enumerate}
+\subsection{Pruebas Simulando Fallos:}
+Se han hecho también pruebas simulando fallos para ver como reaccionaba la aplicación. Este tipo de pruebas han sido por ejemplo:
+    \begin{enumerate}
+        \item \textbf{Sin Conexion a Internet:} Se han hecho pruebas pruebas para ver como reaccionaba la aplicación en caso de que no hubiera conexión a internet y por tanto no se pudiera comunicar la aplicación con la API. Se ha observado que la aplicación sigue funcionando solo que no ofrece dichos servicios que necesitan de los datos de la base de datos.
+        \item \textbf{Plantas con el mismo nombre:} Se han hecho pruebas intentando crear una planta con el mismo nombre que otra ya existente. Al intentar esta prueba la aplicación ha dado error debido a la existencia de una planta con ese mismo nombre.
+    \end{enumerate}
+    

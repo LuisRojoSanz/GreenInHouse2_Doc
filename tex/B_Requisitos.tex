@@ -1,18 +1,18 @@
 \apendice{Especificación de Requisitos}
 
 \section{Introducción}
-En este apéndice se van a detallar los requisitos esenciales, tanto funcionales como no funcionales para el desarrollo del proyecto. Los definición de requisitos es un paso fundamental ya que se definen tanto las funcionalidades como restricciones que el sistema debe cumplir para satisfacer las necesidades del usuario.
+En este apéndice se van a detallar los requisitos esenciales, tanto funcionales como no funcionales para el desarrollo del proyecto. La definición de requisitos es un paso fundamental ya que se definen tanto las funcionalidades como restricciones que el sistema debe cumplir para satisfacer las necesidades del usuario.
 
 \section{Objetivos generales}
-El objetivo principal del proyecto es la proporcionar la posibilidad de monitorizar el estado de las plantas mediante distintos sensores que envian los datos de mediante una raspberry pi.
+El objetivo principal del proyecto es la de proporcionar la posibilidad de monitorizar el estado de las plantas mediante distintos sensores que envían los datos mediante una raspberry pi.
 
 Objetivos del proyecto:
     \begin{itemize}
-        \item \textbf{Monitorización en tiempo real:} Obtener datos en tiempo real desde la raspberry pi para mostrarselos mediante la interfaz al usuario.
+        \item \textbf{Monitorización en tiempo real:} Obtener datos en tiempo real desde la raspberry pi para mostrárselos mediante la interfaz al usuario.
         \item \textbf{Historial de Mediciones:} Permitir que el usuario pueda consultar datos en un determinado periodo de tiempo.
         \item \textbf{Gestión de Plantas:} Permitir que el usuario pueda crear, eliminar y editar las plantas según sus intereses.
         \item \textbf{Estado de Sensores:} Permitir que el usuario pueda comprobar el estado de los sensores.
-        \item \textbf{Alertas y Notificaciones:} Notificar al usuario cuando los valores que nos devuelva alguno de los sensores no esté dentro de los rangos establecidos como óptimos.
+        \item \textbf{Alertas y Notificaciones:} Notificar al usuario cuando los valores que nos devuelva alguno de los sensores no estén dentro de los rangos establecidos como óptimos.
         \item \textbf{Interfaz intuitiva:} Creación de una interfaz intuitiva para que el usuario pueda realizar las gestiones que necesite sin que tenga dudas de cómo.
         \item \textbf{Interfaz Adaptativa:} Creación de una interfaz que se adapte correctamente al tamaño de la pantalla.
         \item \textbf{Soporte Multilingüe:} Añadir la posibilidad que el usuario pueda cambiar de idioma la aplicación y así hacerla más accesible para más usuarios.
@@ -26,13 +26,22 @@ Los requisitos se van a dividir en función de si son funcionales o no funcional
     \item \textbf{Funcionales:}
         \begin{itemize}
             \item \textbf{RF-01:} El sistema tiene que permitir que los usuarios puedan crear nuevas plantas proporcionando el nombre y tipo de planta.
-            \item \textbf{RF-02:} La aplicación tiene que mostrar los valores recogidos por los sensores tanto de humedad, como temperatura y luz.
+            \item \textbf{RF-02:} La aplicación tiene que mostrar el estado de los sensores.
             \item \textbf{RF-03:} El usuario tiene que poder consultar un histórico de las mediciones en un rango de tiempo determinado.
             \item \textbf{RF-04:} El sistema tiene que permitir que los usuarios puedan editar y eliminar las plantas registradas.
             \item \textbf{RF-05:} El sistema tiene que notificar cuando un valor de los devueltos por los sensores se salga de los valores óptimos.
-            \item \textbf{RF-06:} El usuario podrá configurar los umbrales tanto de humedad, temperatura y luz en función del tipo planta que seleccione plantar.
-            \item \textbf{RF-07:} La aplicación deberá mostrar todos los sensores mostrando si están activos o no. 
-            \item \textbf{RF-08:} La aplicación deberá permitir seleccionar el idioma deseado.
+            \item \textbf{RF-06:} El usuario podrá configurar los umbrales tanto de humedad, temperatura y luz en función del tipo planta que seleccione plantar. 
+            \item \textbf{RF-07:} La aplicación deberá permitir seleccionar el idioma deseado.
+            \item \textbf{RF-08:} La aplicación deberá permitir al usuario registrar manualmente el cambio de tierra de la planta.
+            \item \textbf{RF-09:} La aplicación debe mostrar los hitos agrupados por frecuencia: diarios, semanales, mensuales, etc.
+            \item \textbf{RF-10:} La aplicación tiene que mostrar los valores recogidos por los sensores tanto de humedad, como temperatura y luz.
+            \item \textbf{RF-11:} La aplicación tiene que permitir que los usuarios puedan seleccionar los días que echar hacia atrás en el tiempo para visualizar más datos en los gráficos.
+            \item \textbf{RF-12:} La aplicación tiene que mostrar los consejos dados para cada tipo de planta.
+            \item \textbf{RF-13:} La aplicación deberá permitir al usuario personalizar la visualización tanto de gráficas como de hitos.
+            \item \textbf{RF-14:} La aplicación deberá permitir al usuario personalizar el tiempo de cambio de tierra.
+            
+
+
         \end{itemize}
     \item \textbf{No Funcionales:}
         \begin{itemize}
@@ -50,33 +59,556 @@ Los requisitos se van a dividir en función de si son funcionales o no funcional
 
 Una muestra de cómo podría ser una tabla de casos de uso:
 
-% Caso de Uso 1 -> Consultar Experimentos.
+% Caso de Uso 1 -> Crear Planta.
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		\textbf{CU-1}    & \textbf{Crear Planta}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
-		\textbf{Autor}                & Alumno \\
-		\textbf{Requisitos asociados} & RF-xx, RF-xx \\
-		\textbf{Descripción}          & La descripción del CU \\
-		\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-01 \\
+		\textbf{Descripción}          & El usuario podrá añadir una nueva planta indicando su nombre y tipo \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pasos del CU
-			\item Pasos del CU (añadir tantos como sean necesarios)
+			\item El usuario accede a la pantalla de crear planta
+			\item El usuario elige el nombre y tipo de planta
+                \item El usuario pulsa el botón ``Añadir''
 		\end{enumerate}\\
-		\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
-		\textbf{Excepciones}          & Excepciones \\
-		\textbf{Importancia}          & Alta o Media o Baja... \\
+		\textbf{Postcondición}        & La planta será creada en la base de datos \\
+		\textbf{Excepciones}          & 
+            \begin{itemize}
+                \item Los campos estén incompletos
+                \item Error en la conexión con la base de datos
+            \end{itemize}\\
+		\textbf{Importancia}          & Alta  \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Nombre del caso de uso.}
+	\caption{CU-1 Creación de Plantas.}
+\end{table}
+
+
+% Caso de Uso 2 -> Editar plantas.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-2}    & \textbf{Editar plantas}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-04 \\
+		\textbf{Descripción}          & El usuario podrá editar una planta existente \\
+		\textbf{Precondición}         &  Debe haber una planta creada. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Modificar Planta
+			\item El usuario elige el nombre de una planta activa
+                \item El usuario cambiará el nombre de planta o tipo
+                \item EL usuario dará al botón Mofificar Planta
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La planta será modificada en la base de datos \\
+		\textbf{Excepciones}          & 
+            \begin{itemize}
+                \item Los campos estén incompletos
+                \item Error en la conexión con la base de datos
+            \end{itemize}\\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Editar Plantas.}
+\end{table}
+
+
+% Caso de Uso 3 -> Eliminar plantas.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3}    & \textbf{Eliminar plantas}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-04 \\
+		\textbf{Descripción}          & El usuario podrá eliminar una planta existente \\
+		\textbf{Precondición}         &  Debe haber una planta creada. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Eliminar plantas
+			\item El usuario elige el nombre de la planta
+                \item El usuario pulsa el botón ``Eliminar''
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La planta será eliminada en la base de datos de plantas activas. \\
+		\textbf{Excepciones}          & 
+            \begin{itemize}
+                \item Los campos estén incompletos
+                \item Error en la conexión con la base de datos
+            \end{itemize}\\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Eliminación de Plantas.}
+\end{table}
+
+% Caso de Uso 4 -> Ver estado actual de los sensores.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-4}    & \textbf{Ver estado actual de los sensores}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-02 \\
+		\textbf{Descripción}          & El usuario podrá ver el estado en tiempo real de los sensores. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de sensores
+			\item El sistema carga los estados.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se muestran los estados en tiempo real. \\
+		\textbf{Excepciones}          &
+            \begin{itemize}
+                \item Error en la conexión con los sensores.
+                \item Error en la conexión con la base de datos.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-4 Estado de los sensores.}
+\end{table}
+
+
+% Caso de Uso 5 -> Cambiar idioma de la aplicación.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-5}    & \textbf{Cambio de Idioma}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-07 \\
+		\textbf{Descripción}          & El usuario podrá cambiar el idioma de la aplicación. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Idioma
+			\item El usuario elegirá el idioma que prefiera.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se cambia el idioma de toda la aplicación al seleccionado por el usuario. \\
+		\textbf{Excepciones}          &  El idioma no carga correctamente.
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-5 Cambio de Idioma.}
+\end{table}
+
+% Caso de Uso 6 -> Visualización de hitos diarios.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-6}    & \textbf{Hitos Diarios}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-09 \\
+		\textbf{Descripción}          & El usuario podrá ver los hitos diarios si están completados o no. \\
+		\textbf{Precondición}         &
+            \begin{itemize}
+                \item El usuario deberá haber accedido a la aplicación.
+                \item Deberán haber hitos creados.
+            \end{itemize}
+            \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de hitos.
+			\item El usuario desplegará la sección de hitos mensuales.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se muestran los hitos organizados. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error en la conexión con la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-6 Visualización de hitos mensuales.}
 \end{table}
 
 
 
+% Caso de Uso 7 -> Visualización de hitos mensuales.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-7}    & \textbf{Hitos Mensuales}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-09 \\
+		\textbf{Descripción}          & El usuario podrá ver los hitos mensuales si están completados o no. \\
+		\textbf{Precondición}         &
+            \begin{itemize}
+                \item El usuario deberá haber accedido a la aplicación.
+                \item Deberán haber hitos creados.
+            \end{itemize}
+            \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de hitos.
+			\item El usuario desplegará la sección de hitos diarios.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se muestran los hitos organizados. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error en la conexión con la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-7 Visualización de hitos mensuales.}
+\end{table}
 
+
+
+% Caso de Uso 8 -> Marcar cambio de tierra de la planta.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-8}    & \textbf{Cambio de Tierra}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-08, RF-09 \\
+		\textbf{Descripción}          & El usuario podrá marcar cuándo ha cambiado la tierra de la planta. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Hitos.
+                \item El usuario desplegará los hitos mensuales.
+			\item El usuario seleccionará el hito de cambio de tierra y le dará a aceptar.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se cambiará el estado del hito a completado. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al acceder a las fechas guardadas.
+                \item Error a la hora de guardar la fecha del cambio de tierra.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-8 Cambio de Tierra.}
+\end{table}
+
+
+% Caso de Uso 9 -> Visualización de Gráfica de Humedad.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-9}    & \textbf{Gráfica de Humedad}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Descripción}          & El usuario podrá ver los datos recogidos por el sensor de humedad en una gráfica. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Gráficos.
+                \item El usuario desplegará el sensor de humedad.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se visualizará los datos recogidos por el sensor de humedad en la gráfica. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al acceder a la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-9 Gráfica de Humedad.}
+\end{table}
+
+% Caso de Uso 10 -> Visualización de Gráfica de Humedad de Ambiente.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-10}    & \textbf{Gráfica de Humedad de Ambiente}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Descripción}          & El usuario podrá ver los datos recogidos por el sensor de humedad en una gráfica. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Gráficos.
+                \item El usuario desplegará el sensor de humedad de ambiente.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se visualizará los datos recogidos por el sensor de humedad en la gráfica. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al acceder a la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-10 Gráfica de Humedad de Ambiente.}
+\end{table}
+
+% Caso de Uso 11 -> Visualización de Gráfica de Luz.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-11}    & \textbf{Gráfica de Luz}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Descripción}          & El usuario podrá ver los datos recogidos por el sensor de luz en una gráfica. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Gráficos.
+                \item El usuario desplegará el sensor de luz.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se visualizará los datos recogidos por el sensor de luz en la gráfica. \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al acceder a la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-11 Gráfica de Luz.}
+\end{table}
+
+% Caso de Uso 12 -> Visualización de Gráfica de Temperatura.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-12}    & \textbf{Gráfica de Temperatura}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-10 \\
+		\textbf{Descripción}          & El usuario podrá ver los datos recogidos por el sensor de temperatura en una gráfica. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Gráficos.
+                \item El usuario desplegará el sensor de temperatura.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se visualizará los datos recogidos por el sensor de temperatura en la gráfica. \\
+		\textbf{Excepciones}          & 
+            \begin{itemize}
+                \item Error al acceder a la base de datos.
+                \item Error al desplegar la sección.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-12 Gráfica de Temperatura.}
+\end{table}
+
+% Caso de Uso 13 -> Histórico de valores en los gráficos.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-13}    & \textbf{Histórico de Valores en Gráficos}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-11 \\
+		\textbf{Descripción}          & El usuario podrá seleccionar los días que quiera volver atrás para ver el histórico de datos. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Gráficos.
+                \item El usuario desplegará uno de los sensores.
+                \item El usuario seleccionará en días atrás los días que desee, hasta un máximo de 30.
+                \item El usuario le dará a actualizar gráfica.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se ajustará el gráfico para mostrar el histórico deseado por el usuario. \\
+		\textbf{Excepciones}          &  Error al acceder a la base de datos.
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-13 Histórico de Valores en Gráficos.}
+\end{table}
+
+% Caso de Uso 14 -> Consulta de Consejos de la Planta.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-14}    & \textbf{Consejos Planta}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-12 \\
+		\textbf{Descripción}          & El usuario podrá visualizar los consejos de la planta. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Inicio.
+                \item El usuario seleccionará el botón de ver consejos de plantas.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se visualizará los consejos con los valores óptimos de cada sensor. \\
+		\textbf{Excepciones}          &  Error al acceder a la base de datos.
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-14 Consejos Plantas.}
+\end{table}
+
+% Caso de Uso 15 -> Personalización en la Visualización de Gráficos.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-15}    & \textbf{Personalización en la Visualización de los Gráficos}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-13 \\
+		\textbf{Descripción}          & El usuario podrá personalizar los gráficos que desee ver. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Ajustes.
+                \item El usuario seleccionará en el apartado de mostrar gráficos los que desee ver y los que no.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La interfaz se ajusta a las selecciones del usuario.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al aplicar los cambios en la pantalla de gráficos.
+                \item Error al guardar las preferencias.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-15 Personalización en la Visualización de los Gráficos.}
+\end{table}
+
+% Caso de Uso 16 -> Personalización en la Visualización de Hitos.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-16}    & \textbf{Personalización en la Visualización de los Hitos}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-13 \\
+		\textbf{Descripción}          & El usuario podrá personalizar los hitos que desee ver. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Ajustes.
+                \item El usuario seleccionará en el apartado de mostrar hitos los que desee ver y los que no.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La interfaz se ajusta a las selecciones del usuario.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al aplicar los cambios en la pantalla de hitos.
+                \item Error al guardar las preferencias.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-16 Personalización en la Visualización de los Hitos.}
+\end{table}
+
+% Caso de Uso 17 -> Personalización de la fecha del cambio de tierra.
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-17}    & \textbf{Personalización en el cambio de tierra}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-14 \\
+		\textbf{Descripción}          & El usuario podrá personalizar la fecha del cambio de tierra. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Ajustes.
+                \item El usuario desplazará el punto hacia la derecha para aumentar los días y hacia la izquierda para disminuirlos en el apartado de frecuencia de cambio de tierra.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La interfaz se ajusta a los cambios del usuario.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al aplicar los cambios en la pantalla de hitos.
+                \item Error al guardar las preferencias.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-17 Personalización de la fecha del cambio de tierra.}
+\end{table}
