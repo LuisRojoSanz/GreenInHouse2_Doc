@@ -1,10 +1,10 @@
 \apendice{Especificación de Requisitos}
 
 \section{Introducción}
-En este apéndice se van a detallar los requisitos esenciales, tanto funcionales como no funcionales para el desarrollo del proyecto. La definición de requisitos es un paso fundamental ya que se definen tanto las funcionalidades como restricciones que el sistema debe cumplir para satisfacer las necesidades del usuario.
+En este apéndice se van a detallar los requisitos esenciales, tanto funcionales como no funcionales, para el desarrollo del proyecto. La definición de requisitos es un paso fundamental, ya que se definen tanto las funcionalidades como las restricciones que el sistema debe cumplir para satisfacer las necesidades del usuario.
 
 \section{Objetivos generales}
-El objetivo principal del proyecto es la de proporcionar la posibilidad de monitorizar el estado de las plantas mediante distintos sensores que envían los datos mediante una raspberry pi.
+El objetivo principal del proyecto es proporcionar la posibilidad de monitorizar el estado de las plantas mediante distintos sensores que envían los datos a través de una Raspberry Pi.
 
 Objetivos del proyecto:
     \begin{itemize}
@@ -39,6 +39,10 @@ Los requisitos se van a dividir en función de si son funcionales o no funcional
             \item \textbf{RF-12:} La aplicación tiene que mostrar los consejos dados para cada tipo de planta.
             \item \textbf{RF-13:} La aplicación deberá permitir al usuario personalizar la visualización tanto de gráficas como de hitos.
             \item \textbf{RF-14:} La aplicación deberá permitir al usuario personalizar el tiempo de cambio de tierra.
+            \item \textbf{RF-15:} La aplicación debe permitir al usuario personalizar el tiempo de añadir fertilizante.
+            \item \textbf{RF-16:} La aplicación debe permitir al usuario personalizar la imagen de la planta ya sea capturar una con la cámara o seleccionarla desde la galería.
+            \item \textbf{RF-17:} La aplicación tiene que mostrar la barra con el porcentaje de cuidado de la planta.
+            \item \textbf{RF-18:} La aplicación tiene que mostrar un mensajes de error si no se ha podido realizar una petición a la API.
             
 
 
@@ -50,6 +54,7 @@ Los requisitos se van a dividir en función de si son funcionales o no funcional
             \item \textbf{RNF-03:} La aplicación debe adaptarse bien a los diferentes dispositivos desde los que se use sin afectar a la visibilidad de la información.
             \item \textbf{RNF-04:} La base de datos que se vaya a usar debe ser eficiente para almacenar y recuperar datos históricos sin que puedan influir en la velocidad de respuesta de la aplicación.
             \item \textbf{RNF-05:} El sistema debe ser escalable para permitir que se puedan añadir más sensores sin que se tengan que hacer cambios muy drásticos en el código.
+            \item \textbf{RNF-06:} La aplicación debe funcionar correctamente en condiciones de sin conexión mostrando el contenido disponible.
         \end{itemize}
 \end{itemize}
 
@@ -611,4 +616,131 @@ Una muestra de cómo podría ser una tabla de casos de uso:
 		\bottomrule
 	\end{tabularx}
 	\caption{CU-17 Personalización de la fecha del cambio de tierra.}
+\end{table}
+
+% Caso de Uso 18 -> Personalización de la fecha para agregar fertilizante
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-18}    & \textbf{Personalización en el cambio de tierra}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-15 \\
+		\textbf{Descripción}          & El usuario podrá personalizar la fecha para agregar fertilizante. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Ajustes.
+                \item El usuario desplazará el punto hacia la derecha para aumentar los días y hacia la izquierda para disminuirlos en el apartado de frecuencia del fertilizante.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La interfaz se ajusta a los cambios del usuario.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al aplicar los cambios en la pantalla de hitos.
+                \item Error al guardar las preferencias.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-18 Personalización de la fecha para agregar fertilizante.}
+\end{table}
+
+% Caso de Uso 19 -> Personalización de la imagen de la planta
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-19}    & \textbf{Personalización de la imagen de la planta}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-16 \\
+		\textbf{Descripción}          & El usuario podrá personalizar la foto de la planta. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Inicio.
+                \item El usuario pulsará el icono de la cámara.
+                \item El usuario elegirá entre las opciones dadas ya sea agregar nueva imagen haciendo una foto o desde la galería o eliminar la imagen.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se modifica la imagen en función de la elección del usuario.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al agregar la imagen.
+                \item Error al borrar la imagen.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-19 Personalización de la imagen de la planta.}
+\end{table}
+
+% Caso de Uso 20 -> Se muestra la barra con el porcentaje del cuidado de la planta
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-20}    & \textbf{Visualización del cuidado de la planta}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-17 \\
+		\textbf{Descripción}          & El usuario podrá visualizar el cuidado de la planta. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la pantalla de Inicio.
+                \item Se mostrará una barra con el porcentaje de cuidado completado de la planta
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se muestra el porcentaje que irá variando en función de si se completan los hitos.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al cargar los hitos completados.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Media  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-20 Visualización del cuidado de la planta.}
+\end{table}
+
+% Caso de Uso 21 -> Se muestran mensajes de error si no se puede realizar peticiones a la API
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-21}    & \textbf{Mensajes de Error}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Luis Rojo \\
+		\textbf{Requisitos asociados} & RF-18 \\
+		\textbf{Descripción}          & El usuario podrá visualizar mensajes de errores tras imposibilidad de comunicación con la API. \\
+		\textbf{Precondición}         &  El usuario deberá haber accedido a la aplicación \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a cualquier pantalla que requiera comunicación con la API.
+                \item Se mostrará un mensaje de error comunicando la imposibilidad de contactar con la API debido a error de conexión.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Se devuelve al usuario a la pantalla de inicio.  \\
+		\textbf{Excepciones}          &  
+            \begin{itemize}
+                \item Error al devolver al usuario a la pantalla de inicio.
+            \end{itemize}
+           \\
+		\textbf{Importancia}          & Alta  \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-21 Mensajes de Error.}
 \end{table}

@@ -1,6 +1,109 @@
 \capitulo{4}{Técnicas y herramientas}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+Para la realización de este proyecto se han empleado una serie de técnicas y herramientas que han permitido la realización del mismo de manera eficiente. Se van a explicar a continuación todas estas metodologías usadas durante la realización del proyecto junto con las técnicas y herramientas y una comparación con otras opciones disponibles en el mercado.
+
+\section{Metodología ágil basada en Sprints}
+Durante el desarrollo del proyecto se ha seguido una metodología que ha permitido llevar una correcta organización y llegar a los objetivos planteados. Para ello, antes del desarrollo se consideraron distintas metodologías como han podido ser las tradicionales y las ágiles.
+
+Las metodologías tradicionales, como puede ser la metodología de \textit{Waterfall}, se basan en un desarrollo secuencial en el que para pasar a otra fase primero se tiene que haber completado la anterior. En cambio, las metodologías ágiles se centran en un desarrollo iterativo e incremental, en el que se pueden realizar entregas parciales y recibir retroalimentación de las mismas para poder ir mejorándolas a largo plazo.
+
+\begin{itemize}
+    \item \textbf{Metodología usada:} Se ha optado por usar una metodología ágil inspirada en Scrum. EL trabajo se ha dividido en ``sprints'' de dos semanas, en los que se planificaban unos objetivos al final de la reunión y en la siguiente se ponía en común esos avances para poder recibir retroalimentación y mejorar algunas cosas que no estuvieran del todo correctas.
+    
+    Cada sprint ha seguido los siguientes pasos:
+    \begin{itemize}
+        \item Planificación de las tareas a desarrollar
+        \item Desarrollo de dichas tareas
+        \item Documentación de las tareas desarrolladas
+        \item Revisión de las tareas terminadas y planificación del siguiente ``sprint''
+    \end{itemize}
+
+    Este enfoque ha permitido tener un control del correcto avance del proyecto, gracias a la buena organización de esta metodología utilizada.
+
+    \item \textbf{Metodología alternativa:} Como alternativa, se valoró la metodología tradicional en cascada, en la que se realiza toda la planificación del proyecto desde un principio. Esta metodología no se adapta bien al tipo de proyecto desarrollado, ya que no permite modificar decisiones ni implementar nuevas funcionalidades, por lo que es poco flexible.
+
+    Por tanto, la elección de la metodología ágil ha sido la más óptima para que el proyecto se gestionara mejor y fuera más flexible.
+\end{itemize}
 
 
+\section{Herramientas de desarrollo}
+
+Durante el desarrollo de este proyecto se han usado diferentes herramientas que han ayudado tanto a la construcción del código, como al diseño de interfaces y depuración, entre otros. La elección de estas herramientas se ha llevado a cabo teniendo en cuenta la compatibilidad entre las mismas y lo óptimas que son para este tipo de proyecto en concreto. 
+
+\begin{itemize}
+    \item \textbf{Android Studio:} ha sido el entorno de desarrollo principal usado para el desarrollo del proyecto. Se trata del IDE oficial para desarrollo Android, el cual está basado en IntelliJ IDEA, y tiene soporte nativo tanto para Flutter como para Dart gracias a sus extensiones oficiales.
+    Unas de las principales funcionalidades usadas son:
+    \begin{itemize}
+        \item {Editor de código con autocompletado y sugerencias inteligentes (IntelliSense)}
+        \item {Herramientas de análisis de rendimiento las cuales pueden detectar si se producen cuellos de botella o procesos costosos.}
+        \item {Sistema para poder emular dispositivos Android y poder probar así las aplicaciones en diferentes versiones y tamaños de pantalla.}
+        \item  {Gestor de dependencias y paquetes integrado con pubspec.yaml.}
+    \end{itemize}
+    \item \textbf{Entorno alternativo:} Visual Studio Code es un editor de texto muy popular y compatible con Flutter a través de extensiones. Este entorno consume menos recursos, por lo que es más rápido, pero tiene limitaciones con ciertas herramientas visuales. Android Studio es una opción más completa, ya que presenta emuladores y herramientas gráficas como son los ``widgets''.
+
+
+    \item \textbf{Dart:} es un lenguaje de programación moderno, desarrollado por Google, orientado a objetos y con una sintaxis clara. Este lenguaje es la base sobre el cual se construye Flutter. Su uso ha sido primordial en este proyecto, ya que se ha empleado para comunicaciones con otros dispositivos, como para crear la lógica o la interfaz.
+    
+    Unas características destacadas de Dart son:
+    \begin{itemize}
+        \item \textbf{Compilación Ahead-of-Time (AOT):} permite que el código se compile antes de su ejecución, lo que mejora el rendimiento de la app en dispositivos móviles.
+        \item \textbf{Programación asíncrona:} Facilita la gestión de tareas que puedan llevar mucho tiempo como las peticiones a la API, sin que se bloquee la interfaz del usuario.
+        \item \textbf{``Null safety'':} es una característica moderna que obliga a que se controle la posibilidad de que hayan valores nulos. Esto hace que el código sea más seguro y que tenga menos posibilidades de tener errores. 
+    \end{itemize}
+
+    \item \textbf{Flutter:} es un framework de desarrollo de interfaces multiplataforma creado por Google. Usa Dart como lenguaje de programación y permite que se puedan crear aplicaciones para Android, iOS, web y escritorio desde el mismo código. Su ventaja frente al resto es que gracias a los ``widgets'' permite personalizar toda la interfaz.
+
+    Los elementos más importantes usados en el proyecto han sido:
+    \begin{itemize}
+        \item \textbf{``Widgets'':} Se pueden dividir en:
+        \begin{itemize}
+            \item \textbf{StatelessWidget:} usado para elementos que no van a cambiar en el tiempo como puede ser un botón o texto escrito.
+            \item \textbf{StatefulWidget:} usado para elementos que varían en el tiempo como pueden ser las gráficas.
+        \end{itemize}
+
+        \item {Sistema de navegación entre pantallas:} se ha usado el sistema ``Navigator'' de Flutter para la gestión en los cambios entre pantallas de la aplicación.
+
+        \item \textbf{``Hot Reloado'':} es una herramienta que permite visualizar los cambios en tiempo real sin tener que volver a ejecutar la aplicación para ver si se han aplicado los cambios.
+
+        \item {Dependencias externas:}
+        \begin{itemize}
+            \item \textbf{http:} Usado para realizar las peticiones contra la API.
+            \item {shared\_preferences:} Usado para guardar datos de la planta activa, como puede ser el nombre o la fecha de plantación, entre otras.
+            \item \textbf{intl:} Usado para el formateo de fechas.
+            \item \textbf{syncfusion\_flutter\_charts:} Usado para la visualización de las gráficas.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Alternativa:} React Native es también un framework de creación de aplicaciones multiplataforma, pero está basado en JavaScript y React. Su arquitectura va a depender del puente entre el código JavaScript y el sistema nativo, por lo que esto puede hacer que afecte al rendimiento. Además, a diferencia de Flutter, no cuenta con un motor propio de renderizado, que haría que la aplicación fuera más fluida.
+\end{itemize}
+
+\section{Backend:}
+\begin{itemize}
+    \item \textbf{Raspberry Pi:} empleada como servidor local para la recogida de datos de los sensores y guardados en una base de datos a la que se accede a través de una API.
+    Se usó esta opción en el anterior proyecto GreenInHouse por su bajo coste y consumo, su facilidad para la integración de sensores físicos y porque Linux es el mejor entorno de desarrollo.
+
+    \item \textbf{Firebase:} hubiera sido una alternativa al ser un servidor en la nube pero se optó por tener los datos de forma local y acceder a ellos a través de la API reduciendo costes y teniendo el control total sobre el entorno y los datos.
+\end{itemize}
+
+\section{Control de versiones y gestión de tareas}
+
+Para la buena gestión del código y de la documentación del proyecto, se ha usado Git como sistema de control de versiones junto con un repositorio para la documentación y otro para el código creados en GitHub. Aparte, se ha utilizado también la herramienta de Zube, una herramienta de gestión de proyectos la cual se integra con GitHub y permite organizar el trabajo con la creación de tarjetas como si fuera un Kanban.
+
+\begin{itemize}
+    \item \textbf{Git y GitHub:} han permitido llevar un control del desarrollo de la aplicación. Algunas de las ventajas han sido:
+    \begin{itemize}
+        \item \textbf{Historial de los cambios:} Cada ``commit'' que se hace, queda registrado en GitHub por lo que se puede revisar los cambios hechos y hacer un seguimiento.
+        \item \textbf{Seguridad y respaldo en la nube:} GitHub actúa como un repositorio don de se van a almacenar todas las versiones del proyecto.
+        \item \textbf{Explicación de ``commits'':} Mediante los mensajes escritos al realizar cada ``commit'', se puede hacer un seguimiento de todas las decisiones tomadas.
+    \end{itemize}
+
+    \item \textbf{Zube:} Es una herramienta de gestión de proyectos que permite organizar las tareas usando un sistema de tarjetas (``issues''), donde cada tarjeta representa una de estas tareas a realizar. Estas tarjetas se van a definir en un ``sprint'' para llevar un mejor control en cada reunión. Al estar integrado con GitHub, estas modificaciones de creación de tarjetas o ``sprints'' se van a ver reflejadas en el repositorio vinculado, facilitando el seguimiento del desarrollo del proyecto. 
+    
+    Ventajas de Zube:
+    \begin{itemize}
+        \item \textbf{Organización Visual por tareas:} Las tareas se separan por ``sprints'' para saber qué tareas hay que tener terminadas para cada reunión.
+        \item \textbf{Integración con GitHub:} Cada tarea creada en Zube va a estar vinculada a un ``commit'' del repositorio para poder llevar así un seguimiento del progreso.
+    \end{itemize}
+
+    \item \textbf{Alternativas a Zube:} Existen algunas alternativas como Trello, Jira o GitLab Boards aunque Zube ha sido sin duda la mejor solución por su integración con GitHub y su sencillez a la hora de usarlo en un proyecto individual.
+\end{itemize}

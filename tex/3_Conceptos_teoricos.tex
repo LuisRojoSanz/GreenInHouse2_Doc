@@ -1,83 +1,152 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
-
-Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
-
-\section{Secciones}
-
-Las secciones se incluyen con el comando section.
-
-\subsection{Subsecciones}
-
-Además de secciones tenemos subsecciones.
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
+GreenInHouse 2.0 es un proyecto que combina la tecnología moderna con el dominio del cuidado de las plantas. Para comprender todo el desarrollo del proyecto es necesario conocer algunos conceptos teóricos relacionados con todas las tecnologías usadas y también otros relacionados con la temática de este proyecto como son las plantas..
 
 
-\section{Referencias}
+\section{Flutter}
+Flutter es un framework de código abierto de desarrollo de interfaces multiplataforma creado por Google. Permite construir aplicaciones nativas para Android, IOs, web y escritorio desde un único código fuente. 
 
-Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
+Al contrario que otros frameworks que actúan como capas intermedias entre el código del desarrollador y los componentes nativos del sistema operativo, Flutter añade directamente los elementos en pantalla gracias al uso de su motor gráfico (Skia). Esto hace que pueda tener un control total sobre el diseño.
 
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}{.5}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
+Hay varios conceptos importantes usados en el desarrollo de la aplicación que se van a explicar a continuación:
 \begin{itemize}
-	\item primer item.
-	\item segundo item.
+    \item \textbf{Widgets:} Al usar Flutter para la creación de una aplicación, todo se crea mediante el uso de ``widgets'', desde un simple botón hasta la estructura completa de una pantalla. Gracias a esto, le proporciona la característica de poder reutilizar elementos y poder personalizar toda la interfaz.
+
+    Los ``widgets'' se van a dividir en dos categorías:
+    \begin{itemize}
+        \item {StatelessWidget:} Hacen referencia a aquellos componentes que no varían en el tiempo, es decir, son fijos. Este tipo de ``widgets'' pueden ser por ejemplo botones estáticos o textos.
+        \item {StatefulWidget:} Hacen referencia a aquellos componentes que van a variar en función de la interacción del usuario con la aplicación o en función del tiempo. Estos son sobre todo los ``widgets'' más usados en el proyecto, como por ejemplo en la creación de las gráficas.
+    \end{itemize}
+
+    \item \textbf{``Hot Reload'':} Esta es una de las funcionalidades más destacadas de Flutter, permite que los cambios que se hagan en el código se reflejen de manera instantánea en la interfaz y se puedan ver los cambios sin tener que estar ejecutando la aplicación cada vez que se haga algún cambio. Esta ha sido una de las funcionalidades fundamentales a la hora del desarrollo de la aplicación para probar interfaces, ajustar parámetros y todo el desarrollo de manera más rápida.
+
+    \item \textbf{Pubspec.yaml:} Este es el archivo central de configuración de Flutter, en él se van a definir todas las dependencias externas, assets y configuraciones globales. Se ha usado para poder definir todas las librerías usadas, así como los diferentes recursos usados en la interfaz, como pueden ser las imágenes.
+
+    \item \textbf{Paquetes externos usados:} Pub.dev es un repositorio extenso de paquetes en el que se definen aquellos paquetes que vamos a usar para el desarrollo del proyecto. Algunos de los paquetes más importantes que se han usado en el desarrollo han sido los siguientes:
+
+    \begin{itemize}
+        \item {http:} Este paquete se define para poder usar las llamadas HTTP que se han usado para la comunicación con la API.
+        
+        \item {shared\_preferences:} Este paquete se usa para guardar datos localmente, como por ejemplo el nombre de la planta o el día de creación de la misma.
+        
+        \item {intl:} Este paquete se usa para la internacionalización de la aplicación y para el formateo de fechas y números en distintos idiomas.
+        
+        \item {syncfusion\_flutter\_charts:} Este paquete se usa para poder generar gráficas avanzadas para permitir a los usuarios poder visualizar el histórico de datos medidos por los sensores.
+    \end{itemize}
+
 \end{itemize}
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
+\section{Dart}
+Dart es un lenguaje de programación creado por Google, orientado a objetos y con una sintaxis familiar para desarrolladores acostumbrados a lenguajes como Java o JavaScript entre otros. Este lenguaje nació con el objetivo de poder facilitar la creación de interfaces de usuario fluidas, portables y altamente reactivas. Esto lo convierte en una de las mejores opciones a la hora del desarrollo de aplicaciones modernas.
 
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
+Unos de los principales conceptos teóricos usados en el desarrollo de la aplicación relacionados con Dart son:
+
 \begin{itemize}
-\item 
+    \item \textbf{Compilación Ahead-of-Time (AOT) y Just-inTime (JIT):} Dart va a permitir dos tipos de compilaciones:
+    \begin{itemize}
+        \item {JIT:} Este tipo de compilación permite cargar los cambios de manera instantánea (``hot reload''). 
+        \item {AOT:} Este tipo de compilación se usa en producción para generar código nativo optimizado. De esta manera se van a reducir los tiempos de arranque y también se va a mejorar el rendimiento general de la aplicación.
+    \end{itemize}
+
+    \item \textbf{Soporte nativo para programación asíncrona:} Dart gestiona tareas como son las llamadas a la API o la lectura de archivos. Esto lo lleva a cabo sin tener que bloquear el hilo principal de la aplicación gracias al uso de elementos nativos, como ``Future'', ``async'' y ``await''. Gracias a estos elementos, las interfaces van a funcionar de manera fluida incluso cuando se estén realizando múltiples operaciones en segundo plano.
+
+    \item \textbf{Gestión automática de memoria:} Dart incluye un recolector de basura que se encarga de liberar de manera automática memoria que no se esté usando. Esto evita pérdidas de memoria ``memory leaks'' y también ayuda a que se mantenga un rendimiento estable en los dispositivos.
+
+    \item \textbf{Multiplataforma:} Dart se usa principalmente para desarrollar aplicaciones móvil, pero también se pueden desarrollar para web, escritorio y servidores. Esto hace que Dart sea una de las mejores opciones para el desarrollo de aplicaciones.
 \end{itemize}
 
-\section{Tablas}
+\section{AndroidStudio}
+AndroidStudio es el entorno de desarrollo integrado (IDE) oficial para el desarrollo de aplicaciones Android, creado por Google y basado en IntelliJ IDEA. En un principio fue diseñado para desarrollar aplicaciones tanto en Java como en Kotlin, aunque a dia de hoy al ser compatible con Flutter y Dart gracias a los ``plugings'' oficiales es uno de los mejores entornos a la hora de trabajar con este framework.
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+Unos de los principales conceptos teóricos usados en el desarrollo de la aplicación relacionados con AndroidStudio son:
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+\begin{itemize}
+    \item \textbf{Editor de código con IntelliSense:} Gracias al autocompletado inteligente de este entorno se puede escribir código de manera más eficiente, detectando errores sintácticos y dando sugerencias sobre dichos errores ayudando a identificarlos antes de la compilación. Esto ha hecho que se reduzca el número de fallos en tiempo de ejecución.
+    
+    \item \textbf{Depuración y emulación de dispositivos:} Gracias al emulador que Android tiene integrado se  pueden descargar distintos tipos de dispositivos con distintas versiones de Android para comprobar la correcta visualización y ejecución de la aplicación. Las herramientas de depuración de código también son clave para poder resolver con mayor facilidad los errores tanto lógicos como los de diseño. 
+    
+    \item \textbf{Integración con Flutter y Dart:} Este entorno cuenta con ``plugings'' oficiales que permiten trabajar con Flutter de manera nativa. Esto incluye:
+    \begin{itemize}
+        \item {Creación automática de nuevos proyectos}
+        \item {Ejecución eficiente de la aplicación tanto en emulador como en cualquier dispositivo}
+        \item {Soporte para ``Hot Reload''}
+    \end{itemize}
+    
+    \item {Control de versiones (Git):} AndroidStudio también tiene integración con GitHub. Gracias a esto, nos es más fácil poder realizar ``commits'' y ``push'' directamente desde el entorno sin tener que descargar los documentos y tener que actualizarlos a mano en GitHub.
+\end{itemize}
+
+
+\section{Raspberry PI}
+La Raspberry Pi es un microordenador compacto de bajo coste desarrollado en Reino Unido por la Fundación Raspberry Pi. Su uso es muy popular, sobre todo en ámbitos educativos, en proyectos de ingeniería y en domótica, entre otros, gracias a sus diferentes usos, su pequeño tamaño y la gran comunidad de soporte que tiene.
+
+En este proyecto, la Raspberry Pi ha tenido un papel clave, tanto como servidor local como recolector de los datos recogidos por los sensores en tiempo real y poniéndolos a disposición de la aplicación mediante el uso de la API.
+
+Unos de los principales conceptos teóricos usados en el desarrollo de la aplicación relacionados con la Raspberry Pi son:
+
+\begin{itemize}
+    \item \textbf{Comunicación mediante formato JSON:} Todos los datos con los que se trabajan están en formato JSON (JavaScript Object Notation), ya que es un formato ligero y fácilmente parseable. Por tanto, al hacer las peticiones a la API consultando diferentes rutas, siempre se ha usado dicho formato tanto para crear datos en la base de datos como para modificarlos o para recogerlos para trabajar con ellos.
+
+    \item \textbf{Conectividad en red local:} Para que la aplicación pueda tener conexión con la maceta es necesario que tanto el dispositivo como la maceta estén conectados a la misma red local. De esta manera:
+    \begin{itemize}
+        \item {Se evita el uso de servicios en nube, eliminando costes extra}
+        \item {El manejo de datos se hace dentro de la red local por lo que es más seguro al no exponerlos a internet.}
+        \item {Se reducen las peticiones entre el cliente y el servidor por lo que las respuestas son más rápidas.}
+        \item {Se simplifica la configuración ya que no va a ser necesario abrir puertos ni instalar certificados SSL para conexiones externas.}
+    \end{itemize}
+
+\end{itemize}
+
+
+\section{Conceptos relacionados con plantas}
+
+Ya que este proyecto trata sobre el seguimiento automatizado del cuidado de las plantas, se van a introducir algunos conceptos básicos sobre botánica para comprender mejor el funcionamiento de la aplicación.
+
+\begin{itemize}
+    \item \textbf{Fotosíntesis:} Proceso mediante el cual las plantas convierten la luz solar, el CO2 del aire y el agua del suelo en oxígeno y glucosa que van a usar como fuente de energía. Este proceso tiene lugar en las hojas, en unas estructuras llamadas cloroplastos que es donde se encuentra la clorofila, pigmento esencial para recoger la energía del sol.
+
+    Una iluminación adecuada es imprescindible para que se lleve a cabo bien este proceso, por ello es por lo que se mide la luminosidad ambiental, ya que una deficiencia lumínica puede provocar un crecimiento lento y hojas amarillas, entre otras cosas.
+
+    \item \textbf{Necesidades hídricas:} Dependiendo de la especie de planta va a tener unas necesidades hídricas u otras. Algunas plantas necesitan humedad constante mientras que otras basta con regarlas de manera esporádica. El estrés hídrico (falta de agua) puede causar que una planta se marchite o pierda las hojas, mientras que un exceso de agua puede provocar ciertas enfermedades por hongos o hacer que se pudran las raíces.
+
+    Por tanto es muy importante tener en cuanto tanto el nivel máximo de humedad que una planta puede tener como el nivel mínimo para que empiece a marchitarse.
+
+    \item \textbf{Temperatura y tolerancia térmica:} La temperatura va a influir directamente en el metabolismo de la planta. Al igual que con el agua cada planta tiene un rango óptimo de temperatura que necesita para crecer. Por debajo de ese rango el crecimiento se ralentizaría y por encima las funciones celulares pueden empezar a colapsar. Además también existen temperaturas mínimas críticas que por debajo de ellas se producen heladas y la muerte celular en la planta.
+
+    Podemos distinguir:
+    \begin{itemize}
+        \item {Plantas termófilas:} Plantas que requieren calor, como por ejemplo plantas tropicales.
+        \item {Plantas mesófilas:} Plantas que están adaptadas a climas templados.
+        \item {Plantas criófilas:}Plantas que toleran el frío.
+    \end{itemize}
+
+    \item \textbf{Luz y fotoperiodismo:} La luz, aparte de afectar a la fotosíntesis, también afecta a procesos como pueden ser la germinación, el crecimiento y la floración de las plantas. Muchas plantas responden al fotoperiodo (duración del día y la noche) y se clasifican en:
+    \begin{itemize}
+        \item {Plantas de día corto:} Plantas que florecen cuando las noches son largas
+        \item {Plantas de día largo:} Plantas que requieren más horas de luz
+        \item {Plantas neutrales:} Planras indiferentes al fotoperiodo
+    \end{itemize}
+
+    \item \textbf{Suelo y sustrato:} El sustrato es el medio en el que se van a desarrollar las raíces. Además de sostener a la planta al suelo tiene la función de aportar tanto agua como aire y nutrientes a esta. Existen diferentes tipos:
+    \begin{itemize}
+        \item {Sustratos universales:} Sustratos válidos para la mayoría de las especies.
+        \item {Sustratos específicos:} Sustratos específicos para un tipo de planta, como pueden ser los cactus o las orquídeas.
+        \item {Sustratos inertes:} Sustratos como por ejemplo la perlita que se usan en hidroponía que es una técnica de cultivo que permite cultivar plantas usando disoluciones minerales en lugar de suelo agrícola.
+    \end{itemize}
+
+    El sustrato con el tiempo se degrada y va perdiendo los nutrientes y la aireación, por lo que se recomienda cambiarlo de forma periódica.
+
+    \item \textbf{Fertilización y nutrientes:} Las plantas necesitan tanto macronutrientes como micronutrientes para un desarrollo correcto. La falta de alguno de estos nutrientes puede provocar síntomas en la planta, como deformaciones o falta de floración.
+    La fertilización puede ser:
+    \begin{itemize}
+        \item {Orgánica:} En este tipo de fertilización se usa el compost o el humus de lombriz.
+        \item {Química:} En este tipo de fertilización se usan abonos NPK balanceados.
+    \end{itemize}    
+\end{itemize}
+
+
+
+
+
+
+
+
